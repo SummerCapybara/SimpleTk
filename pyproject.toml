@@ -1,5 +1,5 @@
 [project]
-name = "Simple-Tk"
+name = "SimpleTkinter"
 version = "0.1.0"
 description = "A simple wrapper for Tkinter"
 readme = "README.md"
@@ -17,4 +17,5 @@ classifiers = [
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
 
