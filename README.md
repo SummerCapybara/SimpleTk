@@ -1,4 +1,4 @@
-SimpleTk
+**SimpleTk**
 
 SimpleTk is a lightweight Python library that simplifies the creation of graphical user interfaces using Tkinter. Compatible with Python 3.8+, and cross-platform support (Windows, macOS, Linux).
 
@@ -36,3 +36,4 @@ Contributions are welcome! Please fork the repository and submit pull requests f
 Links
 
 GitHub Repository: https://github.com/SummerCapybara/SimpleTk
+
