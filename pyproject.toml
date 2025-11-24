@@ -1,0 +1,19 @@
+[project]
+name = "SimpleTk"
+version = "0.1.0"
+description = "A simple wrapper for Tkinter"
+readme = "README.md"
+authors = [{ name = "SummerCapybara" }]
+requires-python = ">=3.8"
+license = { text = "MIT" }
+keywords = ["tkinter", "gui", "simple"]
+# homepage = "https://github.com/SummerCapybara/SimpleTk"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
