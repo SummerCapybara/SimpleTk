@@ -42,7 +42,7 @@ class SimpleTk:
     # Style
     # ============================
 
-    def CreateStyle(
+    def create_style(
         self,
         Name: str,
         Widget: str,
@@ -115,7 +115,7 @@ class SimpleTk:
     # ============================
 
 
-    def CreateButton(
+    def create_button(
                     self,
                     toolkit = "tk",
                     activebackground=None,
@@ -173,7 +173,6 @@ class SimpleTk:
                     disabledforeground=disabledforeground,
                     font=font,
                     foreground=foreground if foreground else fg,
-                    height=height,
                     highlightbackground=highlightbackground,
                     highlightcolor=highlightcolor,
                     highlightthickness=highlightthickness,
@@ -190,7 +189,6 @@ class SimpleTk:
                     text=text,
                     textvariable=textvariable,
                     underline=underline,
-                    width=width,
                     wraplength=wraplength)
             
         elif toolkit == "ttk":
@@ -201,7 +199,6 @@ class SimpleTk:
                 image=image,
                 command=command,
                 style=style,
-                width=width,
                 takefocus=takefocus,
                 textvariable=textvariable,
                 underline=underline,
@@ -211,10 +208,10 @@ class SimpleTk:
             raise ValueError('toolkit must be "tk" or "ttk".')
 
 
-        Button.place(x=x, y=y)
+        Button.place(x=x, y=y, width=width, height=height)
         return Button
 
-    def CreateLabel(
+    def create_label(
         self,
         toolkit="tk",
         anchor=None,
@@ -275,7 +272,6 @@ class SimpleTk:
                 cursor=cursor,
                 font=font,
                 foreground=foreground if foreground else fg,
-                height=height,
                 highlightbackground=highlightbackground,
                 highlightcolor=highlightcolor,
                 highlightthickness=highlightthickness,
@@ -289,7 +285,6 @@ class SimpleTk:
                 text=text,
                 textvariable=textvariable,
                 underline=underline,
-                width=width,
                 wraplength=wraplength,
             )
 
@@ -301,7 +296,6 @@ class SimpleTk:
                 justify=justify,
                 padding=(padx, pady) if padx or pady else None,
                 style=style,
-                width=width,
                 textvariable=textvariable,
                 underline=underline,
             )
@@ -309,10 +303,10 @@ class SimpleTk:
         else:
             raise ValueError('toolkit must be "tk" or "ttk".')
 
-        Label.place(x=x, y=y)
+        Label.place(x=x, y=y, width=width, height=height)
         return Label
 
-    def CreateEntry(self,
+    def create_entry(self,
         toolkit="tk",
         background=None, bg=None,
         bd=None, borderwidth=None,
@@ -396,7 +390,6 @@ class SimpleTk:
                 state=state,
                 takefocus=takefocus,
                 textvariable=text,
-                width=width,
                 xscrollcommand=xscrollcommand,
             )
 
@@ -412,17 +405,16 @@ class SimpleTk:
                 validate=validate,
                 validatecommand=validatecommand,
                 invalidcommand=invalidcommand,
-                width=width,
                 xscrollcommand=xscrollcommand,
                 style=style)
 
         else:
             raise ValueError('toolkit must be "tk" or "ttk".')
 
-        Entry.place(x=x, y=y)
+        Entry.place(x=x, y=y, width=width)
         return Entry
             
-    def CreateText(self,
+    def create_text(self,
         text=None,
         background=None, bg=None,
         bd=None, borderwidth=None,
@@ -471,7 +463,6 @@ class SimpleTk:
             exportselection=exportselection,
             font=font,
             foreground=foreground if foreground else fg,
-            height=height,
             highlightbackground=highlightbackground,
             highlightcolor=highlightcolor,
             highlightthickness=highlightthickness,
@@ -495,20 +486,19 @@ class SimpleTk:
             tabstyle=tabstyle,
             takefocus=takefocus,
             undo=undo,
-            width=width,
             wrap=wrap,
             xscrollcommand=xscrollcommand,
             yscrollcommand=yscrollcommand,
         )
 
-        Text.place(x=x, y=y)
+        Text.place(x=x, y=y, width=width, height=height)
 
         if text is not None:
             Text.insert("1.0", text)
 
         return Text
 
-    def CreateCheckbutton(
+    def create_checkbutton(
         self,
         toolkit="tk",
         text=None,
@@ -546,8 +536,6 @@ class SimpleTk:
                 font=font,
                 padx=padx,
                 pady=pady,
-                width=width,
-                height=height,
                 selectcolor=selectcolor
             )
         elif toolkit == "ttk":
@@ -564,10 +552,10 @@ class SimpleTk:
             )
         else:
             raise ValueError('Toolkit must be "tk" or "ttk".')
-        cb.place(x=x, y=y)
+        cb.place(x=x, y=y, width=width, height=height)
         return cb
 
-    def CreateRadiobutton(
+    def create_radiobutton(
         self,
         toolkit="tk",
         text=None,
@@ -603,8 +591,6 @@ class SimpleTk:
                 font=font,
                 padx=padx,
                 pady=pady,
-                width=width,
-                height=height,
                 indicatoron=indicatoron
             )
         elif toolkit == "ttk":
@@ -620,10 +606,10 @@ class SimpleTk:
             )
         else:
             raise ValueError('Toolkit must be "tk" or "ttk".')
-        rb.place(x=x, y=y)
+        rb.place(x=x, y=y, width=width, height=height)
         return rb
 
-    def CreateScale(
+    def create_scale(
         self,
         toolkit="tk",
         from_=0,
@@ -681,7 +667,7 @@ class SimpleTk:
         return sc
 
 
-    def CreateListbox(
+    def create_listbox(
         self,
         selectmode="browse",
         height=None,
@@ -696,16 +682,15 @@ class SimpleTk:
             self.window,
             selectmode=selectmode,
             height=height,
-            width=width,
             background=background or bg,
             foreground=foreground or fg,
             font=font
         )
-        lb.place(x=x, y=y)
+        lb.place(x=x, y=y, width=width)
         return lb
 
 
-    def CreateCombobox(
+    def create_combobox(
         self,
         values=None,
         state="normal",
@@ -718,14 +703,13 @@ class SimpleTk:
             self.window,
             values=values,
             state=state,
-            width=width,
             font=font
         )
-        cb.place(x=x, y=y)
+        cb.place(x=x, y=y, width=width)
         return cb
 
 
-    def CreateProgressbar(
+    def create_progressbar(
         self,
         orient="horizontal",
         length=None,
@@ -748,6 +732,70 @@ class SimpleTk:
         pb.place(x=x, y=y)
         return pb
 
+    def configure(
+        self,
+        foreground=None,
+        background=None,
+        font=None,
+        borderwidth=None,
+        relief=None,
+        padding=None,
+        width=None,
+        anchor=None,
+        justify=None,
+        wraplength=None,
+        focuscolor=None,
+        lightcolor=None,
+        darkcolor=None,
+        troughcolor=None,
+        sliderlength=None,
+        sliderrelief=None,
+        arrowsize=None,
+        indicatormargin=None,
+        indicatorcolor=None,
+        indicatorsize=None,
+        insertcolor=None,
+        selectbackground=None,
+        selectforeground=None
+    ):
+        """
+        Explicitly sets widget configuration options. Options that are None are ignored.
+        """
+        args = {
+            "foreground": foreground,
+            "background": background,
+            "font": font,
+            "borderwidth": borderwidth,
+            "relief": relief,
+            "padding": padding,
+            "width": width,
+            "anchor": anchor,
+            "justify": justify,
+            "wraplength": wraplength,
+            "focuscolor": focuscolor,
+            "lightcolor": lightcolor,
+            "darkcolor": darkcolor,
+            "troughcolor": troughcolor,
+            "sliderlength": sliderlength,
+            "sliderrelief": sliderrelief,
+            "arrowsize": arrowsize,
+            "indicatormargin": indicatormargin,
+            "indicatorcolor": indicatorcolor,
+            "indicatorsize": indicatorsize,
+            "insertcolor": insertcolor,
+            "selectbackground": selectbackground,
+            "selectforeground": selectforeground
+        }
+
+        # Apply only non-None options
+        for k, v in args.items():
+            if v is not None:
+                try:
+                    self._configure('configure', {k: v}, {})
+                except tk.TclError:
+                    pass  # ignore invalid options
+
+    config = configure 
 
     def destroy(self):
         """Destroy the window."""
